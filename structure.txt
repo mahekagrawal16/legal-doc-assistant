@@ -1,0 +1,31 @@
+legal-assistant/
+│
+├── main.py
+│
+├── app/
+│   ├── routes/
+│   │   ├── upload.py         # Upload PDFs/DOCX and ingest
+│   │   └── ask.py            # Ask questions to understand clauses
+│   │
+│   ├── services/
+│   │   ├── ocr.py            # OCR + text extraction from PDFs
+│   │   ├── chunking.py       # Split document into clause chunks
+│   │   ├── embeddings.py     # Create and store embeddings
+│   │   ├── retriever.py      # Retrieve relevant chunks
+│   │   └── llm.py            # Query the LLM
+│   │
+│   └── utils/
+│       └── file_utils.py     # Save uploaded files
+│
+├── vectorstore/              # FAISS vector index is stored here
+└── uploaded_docs/            # Uploaded PDFs/DOCX files go here
+
+
+legal_doc_assistant/
+├── app/
+│   ├── routes/
+│   ├── services/
+│   └── ... other FastAPI files ...
+├── main.py
+├── app.py           <-- orchestrator
+├── streamlit_app.py <-- this file (frontend)
